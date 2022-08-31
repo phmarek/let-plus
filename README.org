@@ -117,13 +117,13 @@ The following forms are defined:
   (add2 5))  ; => 7
 #+END_SRC
 
-- =((&plist (variable key [default])*)=, also =&plist-r/o= :: Access to property lists.  When =key= is not given, =variable= is used instead, and =default= is used if the element does not exist in the value (note that default may be evaluated multiple times when using the read-write form which uses =symbol-macrolet=).  Example:
+- =((&plist (variable key [default])*) list)=, also =&plist-r/o= :: Access to property lists.  When =key= is not given, =variable= is used instead, and =default= is used if the element does not exist in the value (note that default may be evaluated multiple times when using the read-write form which uses =symbol-macrolet=).  Example:
 #+BEGIN_SRC lisp
 (let+ (((&plist a (my-b b) (c nil 3)) '(a 1 b 2)))
   (list a my-b c))  ; => (1 2 3)
 #+END_SRC
 
-- =(((&hash-table (variable key [default])*)=, also =&hash-table-r/o= :: Access to the elements of hash tables, the semantics is the same as =&plist=.
+- =((&hash-table (variable key [default])*) ht)=, also =&hash-table-r/o= :: Access to the elements of hash tables, the semantics is the same as =&plist=.
 
 - =(&complex real imaginary)= :: Destructures complex numbers.
 
